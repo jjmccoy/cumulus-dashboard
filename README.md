@@ -48,7 +48,7 @@ The compiled files will be placed in the `dist` directory.
 
 This requires [nvm](https://github.com/creationix/nvm) and node v8.11. To set v8.11 as the default, use `nvm use`.
 
-```(bash)
+```bash
 git clone https://github.com/cumulus-nasa/cumulus-dashboard
 cd cumulus-dashboard
 nvm use
