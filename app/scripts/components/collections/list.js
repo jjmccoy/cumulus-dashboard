@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import {
   clearCollectionsSearch,
-  // cumulusInstanceMetadata,
+  cumulusInstanceMetadata,
   listCollections,
   searchCollections
 } from '../../actions';
@@ -41,10 +41,10 @@ var CollectionList = React.createClass({
     '1 Year Ago': moment().subtract(1, 'years').format()
   },
 
-  // componentWillMount: function () {
-  //   const { dispatch } = this.props;
-  //   dispatch(cumulusInstanceMetadata());
-  // },
+  componentWillMount: function () {
+    const { dispatch } = this.props;
+    dispatch(cumulusInstanceMetadata());
+  },
 
   generateQuery: function () {
     return {};
