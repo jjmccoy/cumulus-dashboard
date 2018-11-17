@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import {
   clearCollectionsSearch,
-  cumulusInstanceMetadata,
+  // cumulusInstanceMetadata,
   listCollections,
   searchCollections
 } from '../../actions';
