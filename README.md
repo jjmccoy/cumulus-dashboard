@@ -29,7 +29,7 @@ The following Environment Variables override the default values in `config.js`:
 | DAAC\_NAME | e.g. LPDAAC, default to Local
 | STAGE | e.g. UAT, default to development
 | LABELS | gitc or daac localization (defaults to daac)
-| APIROOT | the API URL. This must be set as it defaults to example.com 
+| APIROOT | the API URL. This must be set as it defaults to example.com
 
      $ DAAC_NAME=LPDAAC STAGE=dev HIDE_PDR=false LABELS=daac APIROOT=https://myapi.com npm run serve
 
@@ -67,7 +67,7 @@ For development and testing purposes, you can use a fake API server provided wit
 ### Unit Tests
 
      $ npm run test
-  
+
 ## Integration & Validation Tests
 
 For the integration tests to work, you have to launch the fake API and the dashboard first. Run the following commands in separate terminal sessions:

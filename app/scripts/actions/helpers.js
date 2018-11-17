@@ -2,6 +2,7 @@
 import url from 'url';
 import request from 'request';
 import { hashHistory } from 'react-router';
+
 import _config from '../config';
 import log from '../utils/log';
 import { get as getToken } from '../utils/auth';
@@ -74,7 +75,7 @@ export const del = function (config, callback) {
   });
 };
 
-export const wrapRequest = function (id, query, params, type, body) {
+export const configureRequest = function (params, body) {
   let config;
   if (typeof params === 'string') {
     config = {
@@ -93,8 +94,13 @@ export const wrapRequest = function (id, query, params, type, body) {
 
   config.headers = config.headers || {};
   config.headers['Content-Type'] = 'application/json';
+  return config;
+};
 
-  return function (dispatch) {
+export const wrapRequest = function (id, query, params, type, body, successCallback) {
+  const config = configureRequest(params, body);
+
+  return function (dispatch, getState) {
     const inflightType = type + '_INFLIGHT';
     log((id ? inflightType + ': ' + id : inflightType));
     dispatch({ id, config, type: inflightType });
@@ -128,6 +134,9 @@ export const wrapRequest = function (id, query, params, type, body) {
       } else {
         const duration = new Date() - start;
         log((id ? type + ': ' + id : type), duration + 'ms');
+        if (successCallback) {
+          successCallback(dispatch, getState, data);
+        }
         return dispatch({ id, type, data, config });
       }
     });
