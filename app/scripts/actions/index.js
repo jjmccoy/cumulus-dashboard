@@ -1,11 +1,12 @@
 'use strict';
 import compareVersions from 'compare-versions';
+import get from 'lodash.get';
 import moment from 'moment';
 import url from 'url';
 import { get as getProperty } from 'object-path';
 import requestPromise from 'request-promise';
 import { hashHistory } from 'react-router';
-import { CMR, hostId } from '@cumulus/cmrjs';
+import { CMR } from '../../../../cumulus/packages/cmr-client';
 
 import { configureRequest } from './helpers';
 import _config from '../config';
@@ -202,21 +203,40 @@ export const getMMTLinkFromCmr = (collection, getState) => {
   if (getCollectionId(collection) in mmtLinks) {
     return Promise.resolve(mmtLinks[getCollectionId(collection)]);
   }
-  const search = new CMR(cmrProvider);
-  return search.searchCollections({short_name: collection.name, version: collection.version})
-    .then((results) => {
-      if (results.length === 1) {
-        const conceptId = results[0].id;
-        if (conceptId) {
-          return buildMMTLink(conceptId, cmrEnvironment);
-        }
-      }
-      return null;
-    })
-    .catch((error) => {
-      console.log(error);
+  const search = new CMR();
+  const results = search.searchCollections(
+    {
+      provider_short_name: cmrProvider,
+      short_name: collection.name,
+      version: collection.version
     });
+  console.log('results');
+  console.log(results);
+  if (results.length === 1) {
+    const conceptId = results[0].id;
+    if (conceptId) {
+      return buildMMTLink(conceptId, cmrEnvironment);
+    }
+  }
+  return null;
+
+    // .catch((error) => {
+    //   console.log(error);
+    // });
 };
+
+/**
+ * Returns the environment specific identifier for the input cmr environment.
+ * @param {string} env - cmr environment
+ * @returns {string} - value to build correct cmr url
+ */
+function hostId (env) {
+  return get(
+    { OPS: '', SIT: 'sit', UAT: 'uat' },
+    env,
+    'uat'
+  );
+}
 
 /**
  * Build correct link to collection based on conceptId and cumulus environment.
