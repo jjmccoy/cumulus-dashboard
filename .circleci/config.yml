@@ -139,13 +139,9 @@ jobs:
           keys:
             - dashboard-{{ .Branch }}-{{ checksum "package.json" }}
 
-      # - run:
-      #     name: Install awscli
-      #     command: sudo pip install awscli
-
-      # - run:
-      #     name: Deploy to S3
-      #     command: aws s3 sync jekyll/_site/docs s3://circle-production-static-site/docs/ --delete
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
 
 
       - run:
@@ -170,9 +166,8 @@ jobs:
               yarn run build
 
       - run:
-          name: Test
-          command:  |
-            cd $(pwd)/dist
+          name: Deploy to S3
+          command: aws s3 sync $(pwd)/dist s3://${SANDBOX_DASHBOARD_BUCKET}
 
 
       - run:
