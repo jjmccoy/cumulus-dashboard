@@ -149,7 +149,7 @@ jobs:
 
       - run:
         name: Test
-        echo {{ .Environment.TEST_ENV }}
+        command: echo {{ .Environment.TEST_ENV }}
 
       - run:
           name: Build Sandbox Dist
