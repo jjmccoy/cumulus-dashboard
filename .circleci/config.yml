@@ -153,6 +153,16 @@ jobs:
             echo $TEST_ENV
 
       - run:
+          name: Install dependencies
+          command: |
+            docker run --rm \
+              -v /home/circleci/.cache:/root/.cache \
+              -v $(pwd):/home \
+              --workdir /home \
+              node:8.11.4 \
+              yarn install --frozen-lockfile --cache-folder /root/.cache
+
+      - run:
           name: Build Sandbox Dist
           command: docker run --rm \
               -v /home/circleci/.cache:/root/.cache \
