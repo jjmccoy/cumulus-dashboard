@@ -147,10 +147,6 @@ jobs:
       #     name: Deploy to S3
       #     command: aws s3 sync jekyll/_site/docs s3://circle-production-static-site/docs/ --delete
 
-      - run:
-          name: Test
-          command: |
-            echo $TEST_ENV
 
       - run:
           name: Install dependencies
@@ -163,21 +159,20 @@ jobs:
               yarn install --frozen-lockfile --cache-folder /root/.cache
 
       - run:
-          name: Test dashboard build
+          name: Build Sandbox Dist
           command: |
-            # build dashboard
             docker run --rm \
               -v /home/circleci/.cache:/root/.cache \
               -v $(pwd):/home \
               --workdir /home \
-              -e APIROOT=http://api:5001 \
+              -e APIROOT=${SANDBOX_API} \
               node:8.11.4 \
               yarn run build
 
       - run:
           name: Test
           command:  |
-            cd $(pwd):/dist
+            cd $(pwd)/dist
 
 
       - run:
