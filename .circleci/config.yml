@@ -153,9 +153,14 @@ jobs:
               -v /home/circleci/.cache:/root/.cache \
               -v $(pwd):/home \
               --workdir /home \
-              -e APIROOT={{ .Environment.SANBOX_API }} \
+              -e APIROOT=${SANBOX_API} \
               node:8.11.4 \
               yarn run build
+
+      - run:
+          name: Test
+          command:  |
+            cd $(pwd):/dist
 
 
       - run:
