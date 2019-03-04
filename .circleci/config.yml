@@ -135,13 +135,13 @@ jobs:
       - checkout
 
       - run:
-        name: Deploy to Cumulus Sandbox
-        command: |
-          echo Deploying to Sandbox
+          name: Deploy to Cumulus Sandbox
+          command: |
+            echo Deploying to Sandbox
 
       - run:
-        name: Deploy to Cumulus SIT
-          echo Deploying to SIT
+          name: Deploy to Cumulus SIT
+          command: echo Deploying to SIT
 
 workflows:
   version: 2
