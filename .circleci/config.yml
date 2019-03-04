@@ -158,7 +158,7 @@ jobs:
               -v /home/circleci/.cache:/root/.cache \
               -v $(pwd):/home \
               --workdir /home \
-              -e APIROOT="$SANDBOX_API" \
+              -e APIROOT=http://api:5001 \
               node:8.11.4 \
               yarn run build
 
