@@ -128,8 +128,24 @@ jobs:
               cypress/base:8 \
               yarn cypress-ci
 
+  deploy:
+    machine: true
+    working_directory: ~/cumulus-dashboard
+    steps:
+      - checkout
+
+      - run:
+        name: Deploy to Cumulus Sandbox
+        command: |
+          echo Deploying to Sandbox
+
+      - run:
+        name: Deploy to Cumulus SIT
+          echo Deploying to SIT
+
 workflows:
   version: 2
   build_test_deploy:
     jobs:
       - build
+      - deploy
