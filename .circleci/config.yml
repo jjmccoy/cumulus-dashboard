@@ -168,10 +168,12 @@ jobs:
       - run:
           name: Deploy to S3
           command: |
+            echo ${TEST_VARIABLE}
             aws s3 sync $(pwd)/dist s3://${SANDBOX_DASHBOARD_BUCKET}
           environment:
             AWS_ACCESS_KEY_ID: ${SANDBOX_ACCESS_KEY_ID}
             AWS_SECRET_ACCESS_KEY: ${SANDBOX_SECRET_ACCESS_KEY}
+            TEST_VARIABLE: ${TEST_ENV}
 
       - run:
           name: Deploy to Cumulus Sandbox
