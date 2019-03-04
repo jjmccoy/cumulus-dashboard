@@ -168,8 +168,8 @@ jobs:
       - run:
           name: Deploy to S3
           command: |
-            export AWS_ACCESS_KEY_ID = ${SANDBOX_ACCESS_KEY_ID}
-            export AWS_SECRET_ACCESS_KEY = ${SANDBOX_SECRET_ACCESS_KEY}
+            echo 'export AWS_ACCESS_KEY_ID="$SANDBOX_ACCESS_KEY_ID"' >> $BASH_ENV
+            echo 'export AWS_SECRET_ACCESS_KEY="$SANDBOX_SECRET_ACCESS_KEY"' >> $BASH_ENV
             aws s3 sync $(pwd)/dist s3://${SANDBOX_DASHBOARD_BUCKET}
 
       - run:
