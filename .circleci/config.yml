@@ -150,8 +150,7 @@ jobs:
       - run:
           name: Test
           command: |
-            echo ${TEST_ENV}
-            echo ($TEST_ENV)
+            echo $TEST_ENV
 
       - run:
           name: Build Sandbox Dist
@@ -159,7 +158,7 @@ jobs:
               -v /home/circleci/.cache:/root/.cache \
               -v $(pwd):/home \
               --workdir /home \
-              -e APIROOT=${SANDBOX_API} \
+              -e APIROOT=$SANDBOX_API \
               node:8.11.4 \
               yarn run build
 
