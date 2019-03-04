@@ -163,8 +163,10 @@ jobs:
               yarn install --frozen-lockfile --cache-folder /root/.cache
 
       - run:
-          name: Build Sandbox Dist
-          command: docker run --rm \
+          name: Test dashboard build
+          command: |
+            # build dashboard
+            docker run --rm \
               -v /home/circleci/.cache:/root/.cache \
               -v $(pwd):/home \
               --workdir /home \
