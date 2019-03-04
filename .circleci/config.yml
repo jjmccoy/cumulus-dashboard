@@ -134,6 +134,30 @@ jobs:
     steps:
       - checkout
 
+      # restore cache
+      - restore_cache:
+          keys:
+            - dashboard-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+
+      # - run:
+      #     name: Deploy to S3
+      #     command: aws s3 sync jekyll/_site/docs s3://circle-production-static-site/docs/ --delete
+
+      - run:
+          name: Build Sandbox Dist
+          command: docker run --rm \
+              -v /home/circleci/.cache:/root/.cache \
+              -v $(pwd):/home \
+              --workdir /home \
+              -e APIROOT={{ .Environment.SANBOX_API }} \
+              node:8.11.4 \
+              yarn run build
+
+
       - run:
           name: Deploy to Cumulus Sandbox
           command: |
@@ -147,5 +171,10 @@ workflows:
   version: 2
   build_test_deploy:
     jobs:
-      - build
-      - deploy
+      # - build
+      - deploy:
+          # requires:
+          #   - build
+          # filters:
+          #   branches:
+          #     only: deploy
