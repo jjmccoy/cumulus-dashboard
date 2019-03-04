@@ -155,6 +155,12 @@ jobs:
               yarn install --frozen-lockfile --cache-folder /root/.cache
 
       - run:
+        name: Setup Environment Variables
+        command: |
+          echo 'export AWS_ACCESS_KEY_ID="$SANDBOX_ACCESS_KEY_ID"' >> $BASH_ENV
+          echo 'export AWS_SECRET_ACCESS_KEY="$SANDBOX_SECRET_ACCESS_KEY"' >> $BASH_ENV
+
+      - run:
           name: Build Sandbox Dist
           command: |
             docker run --rm \
@@ -168,8 +174,6 @@ jobs:
       - run:
           name: Deploy to S3
           command: |
-            echo 'export AWS_ACCESS_KEY_ID="$SANDBOX_ACCESS_KEY_ID"' >> $BASH_ENV
-            echo 'export AWS_SECRET_ACCESS_KEY="$SANDBOX_SECRET_ACCESS_KEY"' >> $BASH_ENV
             aws s3 sync $(pwd)/dist s3://${SANDBOX_DASHBOARD_BUCKET}
 
       - run:
