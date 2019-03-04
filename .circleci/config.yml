@@ -139,9 +139,9 @@ jobs:
           keys:
             - dashboard-{{ .Branch }}-{{ checksum "package.json" }}
 
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
+      # - run:
+      #     name: Install awscli
+      #     command: sudo pip install awscli
 
       # - run:
       #     name: Deploy to S3
@@ -158,7 +158,7 @@ jobs:
               -v /home/circleci/.cache:/root/.cache \
               -v $(pwd):/home \
               --workdir /home \
-              -e APIROOT=$SANDBOX_API \
+              -e APIROOT="$SANDBOX_API" \
               node:8.11.4 \
               yarn run build
 
