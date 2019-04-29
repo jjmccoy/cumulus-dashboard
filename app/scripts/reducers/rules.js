@@ -59,7 +59,8 @@ export default function reducer (state = initialState, action) {
   const { data, id } = action;
   switch (action.type) {
     case RULE:
-      const foundRule = data.results.find((result) => result.name === id);
+      const rulesList = data.results.Items ? data.results.Items : data.results;
+      const foundRule = rulesList.find((result) => result.name === id);
       set(state, ['map', id, 'inflight'], false);
       set(state, ['map', id, 'data'], assignDate(foundRule));
       del(state, ['deleted', id]);

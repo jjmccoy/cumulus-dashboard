@@ -11,6 +11,8 @@ class Overview extends React.Component {
 
   render () {
     const { inflight, items } = this.props;
+    console.log('items');
+    console.log(items);
     return (
       <div className='overview-num__wrapper'>
         {inflight ? <Loading /> : null}

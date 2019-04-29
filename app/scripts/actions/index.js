@@ -62,7 +62,7 @@ export const getCollection = (name, version) => ({
     type: types.COLLECTION,
     method: 'GET',
     id: getCollectionId({name, version}),
-    path: `collections?name=${name}&version=${version}`
+    path: `collections/${name}/${version}`
   }
 });
 

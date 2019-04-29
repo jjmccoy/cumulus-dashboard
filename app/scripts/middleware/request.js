@@ -60,14 +60,20 @@ const requestMiddleware = ({ dispatch, getState }) => next => action => {
     const inflightType = type + '_INFLIGHT';
     log((id ? inflightType + ': ' + id : inflightType));
     dispatch({ id, config: requestAction, type: inflightType });
-
+    console.log('request:');
+    console.log(requestAction);
     const start = new Date();
     return requestPromise(requestAction)
       .then((response) => {
         const { body } = response;
 
+        console.log('it got a normal response:', requestAction.path);
+        console.log(response);
+
         if (+response.statusCode >= 400) {
           const error = getError(response);
+          console.log('there was an error in the request');
+          console.log(error);
           return handleError({ id, type, error, requestAction }, next);
         }
 
@@ -75,7 +81,11 @@ const requestMiddleware = ({ dispatch, getState }) => next => action => {
         log((id ? type + ': ' + id : type), duration + 'ms');
         return next({ id, type, data: body, config: requestAction });
       })
-      .catch(({ error }) => handleError({ id, type, error, requestAction }, next));
+      .catch((error) => {
+        console.log('in the error from the request', requestAction.path);
+        console.log(error);
+        handleError({ id, type, error, requestAction }, next);
+      });
   }
 
   return next(action);

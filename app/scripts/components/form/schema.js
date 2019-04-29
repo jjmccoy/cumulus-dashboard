@@ -36,10 +36,15 @@ export const traverseSchema = function (schema, fn, path) {
 export const removeReadOnly = function (data, schema) {
   const readOnlyRemoved = {};
   const schemaFields = [];
+  // console.log(data);
   traverseSchema(schema, function (property, meta, schemaProperty, path) {
     schemaFields.push(property);
+    // console.log('checking property', property);
+    // console.log(meta);
     if (!meta.readonly) {
+      // console.log('in Not readonly step');
       const accessor = path ? path + '.' + property : property;
+
       set(readOnlyRemoved, accessor, get(data, accessor));
     }
   });
@@ -49,7 +54,8 @@ export const removeReadOnly = function (data, schema) {
   const nonSchemaFields = Object.keys(data).filter(f => (
     schemaFields.indexOf(f) === -1 && esFields.indexOf(f) === -1)
   );
-
+  // console.log('read only removed ======');
+  // console.log(readOnlyRemoved);
   // add them to the list of fields
   nonSchemaFields.forEach(f => set(readOnlyRemoved, f, get(data, f)));
 

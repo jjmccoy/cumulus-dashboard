@@ -50,11 +50,15 @@ export default function reducer (state = initialState, action) {
   switch (action.type) {
     case COLLECTION:
       const colName = id.split('___');
-      const collection = data.results.find(function (element) {
-        return element.name === colName[0];
-      });
+      console.log('coll name', colName);
+      console.log('data', data);
+      // const collection = data.results.find(function (element) {
+      //   return element.name === colName[0];
+      // });
+      console.log('in reducers');
+      // console.log(collection);
       set(state, ['map', id, 'inflight'], false);
-      set(state, ['map', id, 'data'], assignDate(collection));
+      set(state, ['map', id, 'data'], assignDate(data));
       del(state, ['deleted', id]);
       break;
     case COLLECTION_INFLIGHT:

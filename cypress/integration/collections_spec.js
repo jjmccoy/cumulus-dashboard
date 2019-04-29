@@ -16,11 +16,11 @@ describe('Dashboard Collections Page', () => {
   describe('When logged in', () => {
     beforeEach(() => {
       cy.login();
-      cy.task('resetState');
+      cy.resetTables();
     });
 
     after(() => {
-      cy.task('resetState');
+      cy.resetTables();
     });
 
     it('should display a link to view collections', () => {
@@ -33,31 +33,26 @@ describe('Dashboard Collections Page', () => {
       cy.url().should('include', 'collections');
       cy.contains('.heading--xlarge', 'Collections');
 
-      cy.get('table tbody tr').its('length').should('be.eq', 5);
+      cy.get('table tbody tr').its('length').should('be.eq', 1);
     });
 
-    it('should display expected MMT Links for collections list', () => {
-      cy.server();
-      cy.fixture('cmr').then((fixture) => {
-        fixture.forEach((call) => {
-          cy.route(call.method, call.url, call.body);
-        });
-      });
+    // it('should display expected MMT Links for collections list', () => {
+    //   cy.server();
+    //   cy.fixture('cmr').then((fixture) => {
+    //     fixture.forEach((call) => {
+    //       cy.route(call.method, call.url, call.body);
+    //     });
+    //   });
 
-      cy.visit('/#/collections');
+    //   cy.visit('/#/collections');
 
-      cy.get('table tbody tr').its('length').should('be.eq', 5);
+    //   cy.get('table tbody tr').its('length').should('be.eq', 1);
 
-      cy.contains('table tbody tr', 'MOD09GQ')
-        .contains('td a', 'MMT')
-        .should('have.attr', 'href')
-        .and('eq', 'https://mmt.uat.earthdata.nasa.gov/collections/CMOD09GQ-CUMULUS');
-
-      cy.contains('table tbody tr', 'L2_HR_PIXC')
-        .contains('td a', 'MMT')
-        .should('have.attr', 'href')
-        .and('eq', 'https://mmt.uat.earthdata.nasa.gov/collections/CL2_HR_PIXC-CUMULUS');
-    });
+    //   cy.contains('table tbody tr', 'localrun-collection')
+    //     .contains('td a', 'MMT')
+    //     .should('have.attr', 'href')
+    //     .and('eq', 'https://mmt.uat.earthdata.nasa.gov/collections/CMOD09GQ-CUMULUS');
+    // });
 
     it('should add a new collection', () => {
       const name = 'TESTCOLLECTION';
@@ -99,8 +94,8 @@ describe('Dashboard Collections Page', () => {
     });
 
     it('should edit a collection', () => {
-      const name = 'MOD09GQ';
-      const version = '006';
+      const name = 'localrun-collection';
+      const version = '0.0.0';
 
       cy.visit(`/#/collections/collection/${name}/${version}`);
       cy.contains('a', 'Edit').as('editCollection');
@@ -113,8 +108,8 @@ describe('Dashboard Collections Page', () => {
 
       // update collection and submit
       const duplicateHandling = 'version';
-      const meta = 'metadata';
-      cy.editJsonTextarea({ data: { duplicateHandling, meta }, update: true });
+      const providerPath = 'new_path';
+      cy.editJsonTextarea({ data: { duplicateHandling, provider_path: providerPath }, update: true });
       cy.contains('form button', 'Submit').click();
 
       // displays the updated collection and its granules
@@ -126,14 +121,14 @@ describe('Dashboard Collections Page', () => {
 
       cy.getJsonTextareaValue().then((collectionJson) => {
         expect(collectionJson.duplicateHandling).to.equal(duplicateHandling);
-        expect(collectionJson.meta).to.equal(meta);
+        expect(collectionJson.provider_path).to.equal(providerPath);
       });
       cy.contains('.heading--large', `Edit ${name}___${version}`);
     });
 
     it('should delete a collection', () => {
-      const name = 'MOD09GK';
-      const version = '006';
+      const name = 'localrun-collection';
+      const version = '0.0.0';
 
       cy.visit(`/#/collections/collection/${name}/${version}`);
 
@@ -147,23 +142,23 @@ describe('Dashboard Collections Page', () => {
       cy.contains('table tbody tr a', name).should('not.exist');
     });
 
-    it('should fail deleting a collection with an associated rule', () => {
-      const name = 'MOD09GQ';
-      const version = '006';
+    // it('should fail deleting a collection with an associated rule', () => {
+    //   const name = 'MOD09GQ';
+    //   const version = '006';
 
-      cy.visit(`/#/collections/collection/${name}/${version}`);
+    //   cy.visit(`/#/collections/collection/${name}/${version}`);
 
-      // delete collection
-      cy.contains('button', 'Delete').click();
-      cy.contains('button', 'Confirm').click();
+    //   // delete collection
+    //   cy.contains('button', 'Delete').click();
+    //   cy.contains('button', 'Confirm').click();
 
-      // error should be displayed indicating that deletion failed
-      cy.get('.error__report');
+    //   // error should be displayed indicating that deletion failed
+    //   cy.get('.error__report');
 
-      // collection should still exist in list
-      cy.contains('a', 'Back to Collections').click();
-      cy.contains('.heading--xlarge', 'Collections');
-      cy.contains('table tbody tr a', name);
-    });
+    //   // collection should still exist in list
+    //   cy.contains('a', 'Back to Collections').click();
+    //   cy.contains('.heading--xlarge', 'Collections');
+    //   cy.contains('table tbody tr a', name);
+    // });
   });
 });

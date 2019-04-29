@@ -67,6 +67,15 @@ declare global {
        */
       logout(): Chainable<null>
 
+      // /**
+      //  * Reset dynamodb tables for cypress tests.
+      //  *
+      //  * @memberof Chainable
+      //  * @example
+      //  *    cy.resetTables()
+      //  */
+      // resetTables(): Chainable<null>
+
       /**
        * Get value of fixture for fake API
        *

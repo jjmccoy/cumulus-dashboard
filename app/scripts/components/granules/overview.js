@@ -103,6 +103,8 @@ class GranulesOverview extends React.Component {
   render () {
     const { stats, granules } = this.props;
     const { list, dropdowns } = granules;
+    console.log('stats');
+    console.log(stats);
     const { count, queriedAt } = list.meta;
     return (
       <div className='page__component'>

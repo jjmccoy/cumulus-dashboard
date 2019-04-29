@@ -29,20 +29,20 @@ describe('Dashboard Granules Page', () => {
       cy.contains('.heading--xlarge', 'Granules');
       cy.contains('.heading--large', 'Granule Overview');
 
-      // shows a summary count of completed and failed granules
-      cy.get('.overview-num__wrapper ul li')
-        .first()
-        .contains('li', '243 Completed')
-        .next()
-        .contains('li', '32 Failed')
-        .next()
-        .contains('li', '14 Running');
+      // // shows a summary count of completed and failed granules
+      // cy.get('.overview-num__wrapper ul li')
+      //   .first()
+      //   .contains('li', '243 Completed')
+      //   .next()
+      //   .contains('li', '32 Failed')
+      //   .next()
+      //   .contains('li', '14 Running');
 
       // shows a list of granules
       cy.getFakeApiFixture('granules').as('granulesList');
 
       cy.get('table tbody tr').as('list');
-      cy.get('@list').its('length').should('be.eq', 10);
+      cy.get('@list').its('length').should('be.eq', 1);
 
       // compare data in each row with the data from fixture
       cy.get('@list').each(($el, index) => {

@@ -56,6 +56,8 @@ class EditRaw extends React.Component {
 
   componentDidUpdate (prevProps) {
     const { pk, state, schema, schemaKey } = this.props;
+    console.log('state,', state);
+    console.log('==========');
     const { dispatch, router, clearRecordUpdate, backRoute } = prevProps;
     // successfully updated, navigate away
     if (get(state.updated, [pk, 'status']) === 'success') {
@@ -64,11 +66,15 @@ class EditRaw extends React.Component {
         router.push(backRoute);
       }, updateDelay);
     }
+    console.log('schema');
+    // console.log(schema[schemaKey]);
     if (this.state.pk === pk || !schema[schemaKey]) { return; }
     const recordSchema = schema[schemaKey];
 
     const newRecord = state.map[pk] || {};
+    console.log(newRecord);
     if (newRecord.error) {
+      console.log('some error');
       this.setState({ // eslint-disable-line react/no-did-update-set-state
         pk,
         data: '',
@@ -76,6 +82,7 @@ class EditRaw extends React.Component {
       });
     } else if (newRecord.data) {
       let data = removeReadOnly(newRecord.data, recordSchema);
+      console.log(data);
       try {
         var text = JSON.stringify(data, null, '\t');
       } catch (error) {

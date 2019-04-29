@@ -7,17 +7,17 @@ describe('Rules page', () => {
   });
 
   describe('when logged in', () => {
-    const testRuleName = 'MOD09GQ_TEST_kinesisRule';
-    const testProviderId = 'PODAAC_SWOT';
-    const testCollectionId = 'MOD09GQ / 006';
+    const testRuleName = 'localrun_rule';
+    const testProviderId = 'localrun-provider';
+    const testCollectionId = 'localrun-collection / 0.0.0';
 
     beforeEach(() => {
       cy.login();
-      cy.task('resetState');
+      cy.resetTables();
     });
 
     after(() => {
-      cy.task('resetState');
+      cy.resetTables();
     });
 
     it('should display a link to view rules', () => {
@@ -53,7 +53,7 @@ describe('Rules page', () => {
           cy.get('dt')
             .contains('Workflow')
             .next('dd')
-            .should('contain', 'KinesisTriggerTest');
+            .should('contain', 'HelloWorldWorkflow');
           cy.get('dt')
             .contains('Provider')
             .next('dd')

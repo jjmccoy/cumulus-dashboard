@@ -17,13 +17,19 @@ const fakeApiDb = require('../../test/fake-api/db');
 const fakeApiToken = require('../../test/fake-api/token');
 
 module.exports = (on) => {
-  const options = browserify.defaultOptions;
+  let options = browserify.defaultOptions;
   const babelOptions = options.browserifyOptions.transform[1][1];
   babelOptions.global = true;
   // ignore all node_modules except files in @cumulus/
   // see https://github.com/cypress-io/cypress-browserify-preprocessor/issues/19
   babelOptions.ignore = [/\/node_modules\/(?!@cumulus\/)/];
 
+  // options.onBundle = (bundle) => {
+  //   bundle.ignore('graceful-fs');
+  //   bundle.ignore('@cumulus/cmrjs');
+  //   // bundle.ignore('@cumulus/logger');
+  // };
+  // const bundle = browserify(options);
   // Run specialized file preprocessor to transpile ES6+ -> ES5
   // This fixes compatibility issues with Electron
   on('file:preprocessor', browserify(options));

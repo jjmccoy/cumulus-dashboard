@@ -83,6 +83,8 @@ export default function reducer (state = initialState, action) {
       break;
 
     case GRANULES:
+      console.log('granules data');
+      console.log(data);
       set(state, ['list', 'data'], removeDeleted('granuleId', data.results, state.deleted));
       set(state, ['list', 'meta'], assignDate(data.meta));
       set(state, ['list', 'inflight'], false);

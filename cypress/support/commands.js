@@ -23,7 +23,7 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-
+// import { resetTables } from '../../node_modules/@cumulus/api/bin/serve';
 import { DELETE_TOKEN, SET_TOKEN } from '../../app/scripts/actions/types';
 
 Cypress.Commands.add('login', () => {
@@ -33,10 +33,10 @@ Cypress.Commands.add('login', () => {
     qs: {
       state: encodeURIComponent(authUrl)
     },
-    followRedirect: false
+    followRedirect: true
   }).then((response) => {
-    const query = response.redirectedToUrl.substr(response.redirectedToUrl.indexOf('?') + 1);
-    const token = query.split('=')[1];
+    const redirectUrl = response.redirects[1].split(' ')[1];
+    const token = redirectUrl.split('=')[1];
     cy.window().its('appStore').then((store) => {
       store.dispatch({
         type: SET_TOKEN,
@@ -54,6 +54,10 @@ Cypress.Commands.add('logout', () => {
       });
     });
   cy.reload();
+});
+
+Cypress.Commands.add('resetTables', () => {
+  cy.exec('cd ./node_modules/@cumulus/api && npm run reset-tables');
 });
 
 Cypress.Commands.add('editJsonTextarea', ({ data, update = false }) => {
