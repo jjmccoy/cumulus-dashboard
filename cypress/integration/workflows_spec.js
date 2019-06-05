@@ -47,7 +47,7 @@ describe('Dashboard Workflows Page', () => {
       cy.contains('.heading--large', workflowName);
       cy.getJsonTextareaValue().then((workflowJson) => {
         expect(workflowJson.name).to.equal(workflowName);
-        expect(workflowJson.definition.States.HelloWorld).to.exist;
+        expect(workflowJson.definition.States.StopStatus).to.exist;
       });
     });
   });
