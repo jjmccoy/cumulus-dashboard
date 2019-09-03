@@ -83,6 +83,12 @@ import ReconciliationReports from './components/reconciliation-reports';
 import ReconciliationReportList from './components/reconciliation-reports/list';
 import ReconciliationReport from './components/reconciliation-reports/reconciliation-report';
 
+//Fontawesome Icons Library
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSignOutAlt, faSearch, faInfoCircle, faTimesCircle, faSave, faCalendar, faExpand, faCompress, faClock, faCaretDown, faSort, faSortDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleDown, faArrowAltCircleUp, faCopy, faEdit, faArchive, faLaptopCode, faServer, faHdd, faExternalLinkSquareAlt} from '@fortawesome/free-solid-svg-icons';
+
+library.add(faSignOutAlt, faSearch, faInfoCircle, faTimesCircle, faSave, faCalendar, faExpand, faCompress, faClock, faCaretDown, faSort, faSortDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleDown, faArrowAltCircleUp, faCopy, faEdit, faArchive, faLaptopCode, faServer, faHdd, faExternalLinkSquareAlt);
+
 // redirect to login when not auth'd
 function requireAuth (nextState, replace) {
   if (!store.getState().api.authenticated) {

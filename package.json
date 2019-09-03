@@ -111,6 +111,9 @@
   },
   "dependencies": {
     "@cumulus/cmrjs": "^1.11.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-solid-svg-icons": "^5.10.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "assert": "^1.4.1",
     "body-parser": "^1.18.3",
     "brace": "^0.9.1",
