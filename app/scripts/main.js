@@ -5,6 +5,12 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider as ProviderElem } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import { useScroll } from 'react-router-scroll';
+//Fontawesome Icons Library
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSignOutAlt, faSearch, faPlus, faInfoCircle, faTimesCircle, faSave, faCalendar, faExpand, faCompress, faClock, faCaretDown, faSort, faSortDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleDown, faArrowAltCircleUp, faCopy, faEdit, faArchive, faLaptopCode, faServer, faHdd, faExternalLinkSquareAlt, faToggleOn, faToggleOff} from '@fortawesome/free-solid-svg-icons';
+
+library.add(faSignOutAlt,faSearch, faPlus, faInfoCircle, faTimesCircle, faSave, faCalendar, faExpand, faCompress, faClock, faCaretDown, faSort, faSortDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleDown, faArrowAltCircleUp, faCopy, faEdit, faArchive, faLaptopCode, faServer, faHdd, faExternalLinkSquareAlt, faToggleOn, faToggleOff);
+
 import {
   Router,
   Route,
@@ -82,12 +88,6 @@ import Logs from './components/logs';
 import ReconciliationReports from './components/reconciliation-reports';
 import ReconciliationReportList from './components/reconciliation-reports/list';
 import ReconciliationReport from './components/reconciliation-reports/reconciliation-report';
-
-//Fontawesome Icons Library
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSignOutAlt, faSearch, faInfoCircle, faTimesCircle, faSave, faCalendar, faExpand, faCompress, faClock, faCaretDown, faSort, faSortDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleDown, faArrowAltCircleUp, faCopy, faEdit, faArchive, faLaptopCode, faServer, faHdd, faExternalLinkSquareAlt} from '@fortawesome/free-solid-svg-icons';
-
-library.add(faSignOutAlt, faSearch, faInfoCircle, faTimesCircle, faSave, faCalendar, faExpand, faCompress, faClock, faCaretDown, faSort, faSortDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleDown, faArrowAltCircleUp, faCopy, faEdit, faArchive, faLaptopCode, faServer, faHdd, faExternalLinkSquareAlt);
 
 // redirect to login when not auth'd
 function requireAuth (nextState, replace) {

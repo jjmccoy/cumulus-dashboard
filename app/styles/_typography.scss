@@ -6,13 +6,13 @@ h1, h2, h3, h4, h5, h6 {
 .heading--xxlarge {
   font-size: 3.2em;
   font-weight: $base-font-bold;
-  color: #fff;
+  color: $white;
 }
 
 .heading--xlarge {
   font-size: 2em;
   font-weight: $base-font-semibold;
-  color: #fff;
+  color: $white;
 }
 
 .heading--large {
@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 .heading__wrapper--border {
   border-bottom: 1px solid $lightest-grey;
   padding-bottom: .3em;
-  margin-bottom: 2.5em;
+  margin-bottom: 1em;
   h2, h3, h4 {
     margin-bottom: .2em;
   }
@@ -53,9 +53,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .num--title {
-  font-weight: $base-font-light;
+  /*font-weight: $base-font-light;
   font-size: 90%;
   color: $grey;
   margin-left: .2em;
+  */
   display: inline-block;
+  vertical-align: middle;
+  border-radius: 4px;
+  padding: 0.6em;
+  margin-left: 10px;
+  background: $ocean-blue;
+  color: $white;
+  line-height: 0.8;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+  font-size: 1em;
+  font-weight: $base-font-regular;
+  -webkit-font-smoothing: antialiased;
+  @include transition(background 0.2s linear);
 }

@@ -8,7 +8,7 @@
     margin: 200px auto;
     padding: 32px;
     max-width: 440px;
-    background: #fff;
+    background: $white;
     h1 {
       font-size: 24px;
       line-height: 1.1;
@@ -83,15 +83,16 @@ a:active {
 
 .link--secondary, .link--secondary:visited {
   color: $ocean-blue;
-  font-weight: $base-font-semibold;
-  border-bottom: 2px solid $ocean-blue;
-  padding-bottom: .3em;
+  font-size: .88em;
+  font-weight: $base-font-regular;
+  border-bottom: 1px solid $ocean-blue;
+  /*padding-bottom: .3em;*/
   transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   &:hover {
     color: $light-green;
-    border-bottom: 2px solid $light-green;
+    border-bottom: 1px solid $light-green;
   }
 }
 
@@ -104,8 +105,9 @@ a:active {
 }
 
 .link--learn-more {
-  margin-top: 2em;
+  margin-top: 1em;
   display: inline-block;
+  float: right;
 }
 
 .description {
@@ -148,9 +150,9 @@ a:active {
     }
     &.active,
     &:hover {
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid $white;
       a {
-        color: #fff;
+        color: $white;
       }
     }
     &.rightalign {
@@ -176,7 +178,7 @@ a:active {
 
 .content__header {
   background-color: $ocean-blue;
-  color: #fff;
+  color: $white;
   padding-top: 2em;
   padding-bottom: 2em;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
@@ -208,10 +210,10 @@ a:active {
     color: lighten($lighter-grey, 8%);
     border-bottom: none;
     .active {
-      color: #fff;
+      color: $white;
     }
     &:hover {
-      color: #fff;
+      color: $white;
     }
   }
   .sidebar__nav--back {
@@ -221,7 +223,7 @@ a:active {
     display: inline-block;
   }
   .sidebar__nav--selected {
-    color: #fff;
+    color: $white;
     font-weight: $base-font-bold;
     letter-spacing: .2px;
   }
@@ -273,11 +275,11 @@ a:active {
 }
 
 .page__section {
-  margin-bottom: 7em;
+  margin-bottom: 3em;
   @extend .clearfix;
-  &:first-of-type {
+  /*&:first-of-type {
     margin-bottom: 4em;
-  }
+  }*/
 }
 
 .page__section--small {
@@ -488,7 +490,7 @@ a:active {
 }
 
 .app__target {
-  color: #FFF;
+  color: $white;
   margin: 0;
 }
 

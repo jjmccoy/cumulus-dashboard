@@ -108,7 +108,7 @@ class Home extends React.Component {
       <section className='page_section'>
         <div className='row'>
           <div className='heading__wrapper--border'>
-              <h2 className='heading--medium heading--shared-content--right'>{header}</h2>
+              <h2 className='heading--large heading--shared-content--right'>{header}</h2>
           </div>
           <ul id={listId}>
             {data.map(d => {
@@ -178,18 +178,26 @@ class Home extends React.Component {
           {this.renderButtonListSection(distErrorStats, 'Distribution Errors', 'distributionErrors')}
           {this.renderButtonListSection(distSuccessStats, 'Distribution Successes', 'distributionSuccesses')}
 
-          <section className='page__section'>
+          <section className='page__section update--granules'>
             <div className='row'>
               <div className='heading__wrapper--border'>
-                <h2 className='heading--medium heading--shared-content--right'>{strings.granules_updated}<span className='num--title'>{numGranules}</span></h2>
+                <h2 className='heading--large heading--shared-content--right'>Granules Updates</h2>
+                <Link className='link--secondary link--learn-more' to='/granules'>{strings.view_granules_overview}</Link>
               </div>
+              <div className="heading__wrapper">
+                <h2 className='heading--medium heading--shared-content--right'>{strings.granules_updated}<span className='num--title'>{numGranules}</span></h2>
+
+              </div>
+
               <GranulesProgress granules={granuleStatus} />
             </div>
           </section>
+
+          
           <section className='page__section list--granules'>
             <div className='row'>
               <div className='heading__wrapper--border'>
-                <h2 className='heading--medium'>{strings.granules_errors}</h2>
+                <h2 className='heading--large'>{strings.granules_errors}</h2>
               </div>
               <List
                 list={list}
@@ -201,7 +209,7 @@ class Home extends React.Component {
                 tableSortProps={errorTableSortProps}
                 query={this.generateQuery()}
               />
-              <Link className='link--secondary link--learn-more' to='/granules'>{strings.view_granules_overview}</Link>
+              
             </div>
           </section>
         </div>
