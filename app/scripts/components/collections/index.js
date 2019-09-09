@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Sidebar from '../app/sidebar';
 import { strings } from '../locale';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Collections extends React.Component {
   constructor () {
@@ -20,7 +21,6 @@ class Collections extends React.Component {
         <div className='content__header'>
           <div className='row'>
             <h1 className='heading--xlarge heading--shared-content'>{strings.collections}</h1>
-            {existingCollection ? <Link className='button button--large button--white button__addcollections button__arrow button__animation' to='/collections/add'>{strings.add_a_collection}</Link> : null}
           </div>
         </div>
         <div className='page__content'>

@@ -1,8 +1,230 @@
+%button{
+  position: relative;
+  padding: .65em 2em;
+  border-radius: 4px;
+  color: $white;
+  font-weight: $base-font-regular;
+  border: none;
+  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  overflow: hidden;
+  input {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+  }
+  &:visited {
+    color: $white;
+  }
+}
+
+.cdash-btn{
+  @extend %button;
+  background-color: $ocean-blue;
+
+//General Button States//
+&--primary, &--primary{
+  &:hover, &:visited {
+    background-color: darken($light-green, 5%);
+    color: $white;
+    border: 0;
+  }
+}
+
+&--secondary, &--secondary{
+  &:hover, &:visited {
+    background-color: $dolphin-grey;
+  }
+}
+
+&--disabled{
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+&--small{
+  font-size: .86em;
+  padding: .4em 2em .3em;
+}
+
+&--large{
+  padding: .7em 2em;
+  font-weight: $base-font-bold;
+  font-size: 1em;
+}
+
+&--loading {
+  position: relative;
+  display: inline-block;
+  .spinner {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 100%;
+  }
+  color: $light-green;
+}
+
+//Various Button CTAs//
+  &--add {
+    @extend %button;
+    background-color: $light-green;
+    
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f067';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--cancel {
+    @extend %button;
+    background-color: $dolphin-grey;
+    
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f05a';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--edit {
+    @extend %button;
+    background-color: $light-green;
+  
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f044';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--delete {
+    @extend %button;
+    background-color: $error-red;
+  
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f187';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--remove {
+    @extend %button;
+    background-color: $light-green;
+    
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f0a0';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--execute{
+    @extend %button;
+    background-color: $light-green;
+    
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f5fc';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--reingest{
+    @extend %button;
+    background-color: $light-green;
+    
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f233';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--download{
+    @extend %button;
+    background-color: $light-green;
+  
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f0ab';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--copy{
+    @extend %button;
+    background-color: $light-green;
+  
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f0c5';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--save{
+    @extend %button;
+    background-color: $light-green;
+  
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f0c7';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+}
+
 .button, .button:visited, .subform__item--last .subform__button {
   padding: .65em 2em;
   border-radius: 4px;
   background-color: $light-green;
-  color: #fff;
+  color: $white;
   font-weight: $base-font-regular;
   border: none;
   transition: all 0.3s ease 0s;
@@ -17,17 +239,17 @@
   }
 }
 
-.button--green, .button--green:visited, .subform__item--last .subform__button {
+.button--primary, .button--primary:visited, .subform__item--last .subform__button {
   &:hover {
     background-color: darken($light-green, 5%);
-    color: #fff;
+    color: $white;
     border: 0;
   }
 }
 
 .button--white, .button--white:visited {
   color: $midnight-blue;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .button--small, .subform__item--last .subform__button {
@@ -84,7 +306,7 @@
   cursor: pointer;
   &:before {
     position: absolute;
-    background-image: url(#{$graphics}layout/arrow-right.svg);
+    /*background-image: url(#{$graphics}layout/arrow-right.svg);*/
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
@@ -122,11 +344,11 @@
   }
 }
 
-.button__cancel {
+/*.button__cancel {
   &:before {
     background-image: url(#{$graphics}layout/sm-xmark.svg);
   }
-}
+}*/
 
 .tab--wrapper {
   margin-bottom: 2em;

@@ -1,5 +1,7 @@
 .table--wrapper {
   overflow-x: scroll;
+  border: 1px solid #ECEAEA;
+  border-radius: 8px 8px 0px 0px;
 }
 
 .pre-style {
@@ -18,10 +20,21 @@ table {
     max-width: 500px;
   }
 
-  thead {
-    background-color: #2276AC;
+  .options--top{
+    background-color: $white;
+    border-radius: 8px 8px 0px 0px;
+    height: 50px;
     td {
-      color: #fff;
+      color: $black;
+      font-weight: $base-font-regular;
+      font-size: .86em;
+    }
+  }
+
+  .table--head {
+    background-color: $ocean-blue;
+    td {
+      color: $white;
       font-weight: $base-font-semibold;
       padding: 1em 1em 1.5em;
       font-size: .86em;
@@ -34,7 +47,7 @@ table {
       td {
         font-size: .86em;
         padding: 1em;
-        vertical-align: top;
+        vertical-align: middle;
         &:first-of-type {
           padding: 1em 0 1em 1em;
         }
@@ -80,7 +93,7 @@ table {
 }
 
 .overview-num, .overview-num:visited {
-  background-color: #fff;
+  background-color: $white;
   padding: 1.5em 1em .5em;
   display: inline-block;
   border-radius: .5em;
@@ -105,16 +118,35 @@ table {
   }
 }
 
+
 .timeline--processing--overall {
+  background-color: #fff;
+  padding: 1.5em 1em .5em;
+  display: inline-block;
+  border-radius: .5em;
+  border: 1px solid #eceaea;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08);
+  text-align: center;
   font-size: .86em;
+  width: 540px;
+  height: 70px;
+  margin: .8em 1.5em .8em 0;
+  float: left;
+  color: #8C8C8C;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s ease 0s;
+  overflow: hidden;
+  clear: right;
+  /*font-size: .86em;
   color: $lighter-grey;
-  margin: 3em 0;
+  margin: 3em 0;*/
   li {
     display: inline-block;
     position: relative;
     margin-right: 2em;
     padding-right: 10%;
-    &:after {
+    /*&:after {
       content: '';
       background-image: url(#{$graphics}layout/chevron-right-green.svg);
       background-size: 15px 25px;
@@ -126,7 +158,7 @@ table {
       top: 1em;
       right: 15%;
       position: absolute;
-    }
+    }*/
     &:last-child {
       margin-right: 0;
       &:after {
@@ -136,9 +168,10 @@ table {
   }
 }
 
-.timeline--processing--failed {
+/*.timeline--processing--failed {
   color: $error-text-red;
-}
+}*/
+
 .num--large {
   display: block;
   font-size: 2.4em;
@@ -178,10 +211,30 @@ table {
     border-bottom: none;
   }
   .next {
-    right: 0;
+    right: 20px;
+
+    &:before{
+      color: $ocean-blue;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f0a9';
+      font-weight: 900;
+      top: 1px;
+      left: 40px;
   }
+}
   .previous {
-    left: 0;
+    left: 20px;
+
+    &:before{
+      color: $ocean-blue;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f0a8';
+      font-weight: 900;
+      top: 1px;
+      left: -14px;
+  }
   }
   .pagination__link--disabled {
     cursor: default;
@@ -222,9 +275,11 @@ table {
   position: relative;
   padding-right: 10px;
   &:after {
+    color: $white;
     position: absolute;
-    background-image: url(#{$graphics}layout/toggle.svg);
-    content: ' ';
+    font-family: 'Font Awesome 5 Free';
+    content: '\f0dc';
+    font-weight: 900;
     width: 10px;
     height: 13px;
     background-size: 10px 13px;
@@ -247,13 +302,22 @@ table {
 
 .table__sort--desc {
   &:after {
-    background-image: url(#{$graphics}layout/chevron-down.svg);
-    top: 17px;
+    color: $white;
+    position: absolute;
+    font-family: 'Font Awesome 5 Free';
+    content: '\f0dd';
+    font-weight: 900;
+    top: 5px;
   }
 }
 .table__sort--asc {
   &:after {
-    background-image: url(#{$graphics}layout/chevron-up.svg);
+    color: $white;
+    position: absolute;
+    font-family: 'Font Awesome 5 Free';
+    content: '\f0de';
+    font-weight: 900;
+    top: 5px;
   }
 }
 

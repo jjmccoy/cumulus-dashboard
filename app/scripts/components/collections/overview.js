@@ -22,6 +22,7 @@ import AsyncCommand from '../form/async-command';
 import { tableHeader, tableRow, tableSortProps } from '../../utils/table-config/granules';
 import { updateDelay } from '../../config';
 import { strings } from '../locale';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class CollectionOverview extends React.Component {
   constructor () {
@@ -117,7 +118,7 @@ class CollectionOverview extends React.Component {
             text={deleteStatus === 'success' ? 'Success!' : 'Delete' } />
           </div>
 
-          <Link className='button button--small form-group__element--right button--green' to={`/collections/edit/${collectionName}/${collectionVersion}`}>Edit</Link>
+          <Link className='cdash-btn--edit button--small form-group__element--right' to={`/collections/edit/${collectionName}/${collectionVersion}`}>Edit</Link>
           {lastUpdated(get(record, 'data.timestamp'))}
           {overview}
           {errors.length ? <ErrorReport report={errors} truncate={true} /> : null}

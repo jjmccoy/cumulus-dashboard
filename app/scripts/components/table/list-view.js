@@ -14,6 +14,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import SortableTable from './sortable';
 import Timer from '../app/timer';
+<<<<<<< HEAD
+=======
+import { isUndefined as undef } from '../../utils/validate';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+>>>>>>> Make all new button types and mixins, start on form elements to table for show options, remove old header button, add icons in dashboard for buttons and tables
 
 class List extends React.Component {
   constructor (props) {

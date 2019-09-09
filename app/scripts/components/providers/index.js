@@ -18,7 +18,6 @@ class Providers extends React.Component {
         <div className='content__header'>
           <div className='row'>
             <h1 className='heading--xlarge heading--shared-content'>Providers</h1>
-            {showSidebar ? <Link className='button button--large button--white button__addcollections button__arrow button__animation' to='/providers/add'>Add a Provider</Link> : null}
           </div>
         </div>
         <div className='page__content'>

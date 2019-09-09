@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { get } from 'object-path';
 import { isUndefined } from '../../utils/validate';
 import { nullValue } from '../../utils/format';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const defaultSortOrder = 'desc';
 const otherOrder = {
@@ -80,9 +81,16 @@ class Table extends React.Component {
 
     return (
       <div className='table--wrapper'>
+        <form>
+          <ul className='options--top'>
+            <li>Showing <span className="amount--records">all 100</span> Records</li>
+            <li><input type="text"></input></li>
+            <li>Show<input type="text"></input>per table</li>
+          </ul>
+          
         <table>
           <thead>
-            <tr>
+            <tr className='table--head'>
               {canSelect && <td/> }
               {header.map((h, i) => {
                 let className = (isTableDumb || props[i]) ? 'table__sort' : '';
@@ -96,8 +104,7 @@ class Table extends React.Component {
                   </td>
                 );
               })}
-            </tr>
-          </thead>
+            </tr> 
           <tbody>
             {data.map((d, i) => {
               const dataId = typeof rowId === 'function' ? rowId(d) : d[rowId];
@@ -131,7 +138,9 @@ class Table extends React.Component {
               );
             })}
           </tbody>
+          <tfoot></tfoot>
         </table>
+        </form>
       </div>
     );
   }

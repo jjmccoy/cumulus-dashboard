@@ -145,6 +145,32 @@ select {
   position: relative;
 }
 
+.options--top{
+  background-color: $white;
+  height: 45px;
+  padding: 21px 35px 0px 35px;
+  
+}
+
+.options--top li{
+  display: inline-block;
+  font-weight: 500;
+  font-size: $base-font-size;
+
+  &:first-child{
+    left: 5px;
+  }
+}
+
+.options--top input[type=text] {
+  width: 25px;
+  box-sizing: border-box;
+}
+
+.amount--records{
+  font-weight: 700;
+}
+
 .form-group__element {
   margin-right: 1em;
 }

@@ -44,6 +44,7 @@ import {
 } from '../utils/kibana';
 
 import { strings } from './locale';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Home extends React.Component {
   constructor () {
@@ -197,7 +198,11 @@ class Home extends React.Component {
           <section className='page__section list--granules'>
             <div className='row'>
               <div className='heading__wrapper--border'>
-                <h2 className='heading--large'>{strings.granules_errors}</h2>
+                <h2 className='heading--medium heading--shared-content--right'>{strings.granules_errors}</h2>
+                <Link className='link--secondary link--learn-more' to='/logs'>{strings.view_logs}</Link>
+              </div>
+              <div className='row'>
+                <div className="button__primary back--top"></div>
               </div>
               <List
                 list={list}
