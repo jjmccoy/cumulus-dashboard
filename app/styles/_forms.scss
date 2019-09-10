@@ -149,6 +149,8 @@ select {
   background-color: $white;
   height: 45px;
   padding: 21px 35px 0px 35px;
+  display: flex;
+  flex-direction: row;
   
 }
 
@@ -156,15 +158,14 @@ select {
   display: inline-block;
   font-weight: 500;
   font-size: $base-font-size;
-
-  &:first-child{
-    left: 5px;
-  }
+  flex: 1;
 }
 
 .options--top input[type=text] {
   width: 25px;
   box-sizing: border-box;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .amount--records{

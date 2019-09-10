@@ -164,7 +164,7 @@ class Home extends React.Component {
     ];
 
     const granuleCount = get(count.data, 'granules.meta.count');
-    const numGranules = !isNaN(granuleCount) ? `(${tally(granuleCount)})` : null;
+    const numGranules = !isNaN(granuleCount) ? `${tally(granuleCount)}` : null;
     const granuleStatus = get(count.data, 'granules.count', []);
 
     return (
@@ -197,7 +197,7 @@ class Home extends React.Component {
           
           <section className='page__section list--granules'>
             <div className='row'>
-              <div className='heading__wrapper--border'>
+              <div className='heading__wrapper'>
                 <h2 className='heading--medium heading--shared-content--right'>{strings.granules_errors}</h2>
                 <Link className='link--secondary link--learn-more' to='/logs'>{strings.view_logs}</Link>
               </div>

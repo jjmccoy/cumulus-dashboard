@@ -20,17 +20,6 @@ table {
     max-width: 500px;
   }
 
-  .options--top{
-    background-color: $white;
-    border-radius: 8px 8px 0px 0px;
-    height: 50px;
-    td {
-      color: $black;
-      font-weight: $base-font-regular;
-      font-size: .86em;
-    }
-  }
-
   .table--head {
     background-color: $ocean-blue;
     td {
@@ -128,7 +117,7 @@ table {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08);
   text-align: center;
   font-size: .86em;
-  width: 540px;
+  width: 615px;
   height: 70px;
   margin: .8em 1.5em .8em 0;
   float: left;
@@ -138,14 +127,17 @@ table {
   transition: all 0.3s ease 0s;
   overflow: hidden;
   clear: right;
+  display: flex;
+  flex-direction: row;
   /*font-size: .86em;
   color: $lighter-grey;
   margin: 3em 0;*/
   li {
     display: inline-block;
     position: relative;
-    margin-right: 2em;
-    padding-right: 10%;
+    /*margin-right: 2em;
+    padding-right: 10%;*/
+    flex: 1;
     /*&:after {
       content: '';
       background-image: url(#{$graphics}layout/chevron-right-green.svg);
@@ -237,6 +229,10 @@ table {
   }
   }
   .pagination__link--disabled {
+    cursor: default;
+    color: $lightest-grey;
+  }
+  .pagination__link--disabled:before {
     cursor: default;
     color: $lightest-grey;
   }

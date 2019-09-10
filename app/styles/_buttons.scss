@@ -91,7 +91,7 @@
       color: $white;
       position: absolute;
       font-family: 'Font Awesome 5 Free';
-      content: '\f05a';
+      content: '\f057';
       font-weight: 900;
       left: 10px;
       
@@ -203,7 +203,7 @@
     } 
   }
 
-  &--save{
+  &--confirm{
     @extend %button;
     background-color: $light-green;
   
@@ -212,6 +212,21 @@
       position: absolute;
       font-family: 'Font Awesome 5 Free';
       content: '\f0c7';
+      font-weight: 900;
+      left: 10px;
+      
+    } 
+  }
+
+  &--top{
+    @extend %button;
+    background-color: $light-green;
+  
+    &:before{
+      color: $white;
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      content: '\f0aa';
       font-weight: 900;
       left: 10px;
       

@@ -153,9 +153,9 @@ class BatchCommand extends React.Component {
                   </div>
                 ) : null }
                 <h4 className={'modal__title--' + status}>{modalText}</h4>
-                <button className={'button button__animation--md button__arrow button__arrow--md button__animation button__arrow--white' + (buttonDisabled ? ' button--disabled' : '')}
+                <button className={'cdash-btn--confirm' + (buttonDisabled ? ' button--disabled' : '')}
                   onClick={this.confirm}>Confirm</button>
-                <button className={'button button__animation--md button__arrow button__arrow--md button__animation button--secondary form-group__element--left button__cancel' + (buttonDisabled ? ' button--disabled' : '')}
+                <button className={'cdash-btn--cancel form-group__element--left' + (buttonDisabled ? ' button--disabled' : '')}
                   onClick={this.cancel}>Cancel</button>
                 <div className='modal__loading'>
                   <div className='modal__loading--inner'>

@@ -105,10 +105,10 @@ class AsyncCommand extends React.Component {
                 ) : null }
                 <h4>{confirmText}</h4>
                 <button
-                  className='button button__animation--md button__arrow button__arrow--md button__animation button__arrow--white'
+                  className='cdash-btn--confirm'
                   onClick={this.confirm}>Confirm</button>
                 <button
-                  className='button button__animation--md button__arrow button__arrow--md button__animation button--secondary form-group__element--left button__cancel'
+                  className='cdash-btn--cancel form-group__element--left'
                   onClick={this.cancel}>Cancel</button>
               </div>
             </div>
