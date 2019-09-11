@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: .3em;
   margin-bottom: 1em;
   h2, h3, h4 {
-    margin-bottom: .2em;
+    margin-bottom: .5em;
   }
 }
 
@@ -61,11 +61,11 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   vertical-align: middle;
   border-radius: 4px;
-  padding: 0.6em;
+  padding: 0.3em .5em .5em .5em;
   margin-left: 10px;
   background: $ocean-blue;
   color: $white;
-  line-height: 0.8;
+  line-height: .8;
   text-transform: uppercase;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
   font-size: 1em;

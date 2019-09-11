@@ -126,6 +126,7 @@ class CollectionOverview extends React.Component {
         <section className='page__section'>
           <div className='heading__wrapper--border'>
             <h2 className='heading--medium heading--shared-content with-description'>{strings.running_granules}<span className='num--title'>{meta.count ? ` ${meta.count}` : null}</span></h2>
+            <Link className='link--secondary link--learn-more' to={`/collections/collection/${collectionName}/${collectionVersion}/granules`}>{strings.view_all_granules}</Link>
           </div>
           <List
             list={list}
@@ -138,7 +139,6 @@ class CollectionOverview extends React.Component {
             rowId={'granuleId'}
             sortIdx={6}
           />
-          <Link className='link--secondary link--learn-more' to={`/collections/collection/${collectionName}/${collectionVersion}/granules`}>{strings.view_all_granules}</Link>
         </section>
       </div>
     );

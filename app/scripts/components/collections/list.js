@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import {Link} from 'react-router';
 import {
   applyRecoveryWorkflowToCollection,
   clearCollectionsSearch,
@@ -49,7 +50,7 @@ class CollectionList extends React.Component {
   generateQuery () {
     return {};
   }
-
+//buttons
   generateBulkActions () {
     const actionConfig = {
       recover: {
@@ -68,6 +69,9 @@ class CollectionList extends React.Component {
     const mmtLinks = this.props.mmtLinks;
     list.data.forEach((collection) => { collection.mmtLink = mmtLinks[getCollectionId(collection)]; });
     const { count, queriedAt } = list.meta;
+
+    
+
     return (
       <div className='page__component'>
         <section className='page__section'>
@@ -78,7 +82,7 @@ class CollectionList extends React.Component {
         </section>
         <section className='page__section'>
           <div className='heading__wrapper--border'>
-            <h2 className='heading--medium heading--shared-content with-description'>{strings.all_collections} <span className='num--title'>{count ? ` (${tally(count)})` : null}</span></h2>
+            <h2 className='heading--medium heading--shared-content with-description'>{strings.all_collections} <span className='num--title'>{count ? ` ${tally(count)}` : null}</span></h2>
           </div>
           <div className='filters'>
             <Search dispatch={this.props.dispatch}
@@ -86,7 +90,9 @@ class CollectionList extends React.Component {
               format={collectionSearchResult}
               clear={clearCollectionsSearch}
             />
+            <Link className='cdash-btn--add cdash-btn--small' to='/collections/add'>{strings.add_a_collection}</Link>
           </div>
+           
 
           <List
             list={list}

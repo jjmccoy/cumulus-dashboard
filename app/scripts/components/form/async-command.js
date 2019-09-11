@@ -33,7 +33,7 @@ class AsyncCommand extends React.Component {
       prevProps.error();
     }
   }
-
+//need update button classnames to 'cdash-btn' after updates to all buttons for each screen -- 09/19 JM
   buttonClass (processing) {
     let className = 'button button--small form-group__element button--green';
     if (processing) className += ' button--loading';

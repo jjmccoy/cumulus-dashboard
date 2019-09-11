@@ -1,9 +1,10 @@
 %button{
   position: relative;
-  padding: .65em 2em;
+  padding: .65em 1.2em .65em 2.5em;
   border-radius: 4px;
   color: $white;
   font-weight: $base-font-regular;
+  text-align: center;
   border: none;
   transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s;
@@ -23,6 +24,8 @@
 .cdash-btn{
   @extend %button;
   background-color: $ocean-blue;
+  
+  
 
 //General Button States//
 &--primary, &--primary{
@@ -46,7 +49,7 @@
 
 &--small{
   font-size: .86em;
-  padding: .4em 2em .3em;
+  padding: .4em 1.5em .3em 2.5em;
 }
 
 &--large{
@@ -78,8 +81,8 @@
       font-family: 'Font Awesome 5 Free';
       content: '\f067';
       font-weight: 900;
+      top: 4px;
       left: 10px;
-      
     } 
   }
 
@@ -203,7 +206,7 @@
     } 
   }
 
-  &--confirm{
+  &--confirm, &--submit{
     @extend %button;
     background-color: $light-green;
   
@@ -269,7 +272,7 @@
 
 .button--small, .subform__item--last .subform__button {
   font-size: .86em;
-  padding: .4em 2em .3em;
+  padding: .4em 1.5em .3em 2.5em;
 }
 
 .button--large {

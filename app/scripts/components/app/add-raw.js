@@ -90,12 +90,12 @@ class AddRaw extends React.Component {
               />
               <br />
                 <button
-                  className={'button button__animation--md button__arrow button__arrow--md button__animation button__arrow--white' + (status === 'inflight' ? ' button--disabled' : '')}
+                  className={'cdash-btn--submit' + (status === 'inflight' ? ' button--disabled' : '')}
                   onClick={this.submit}
                   readOnly={true}
                   >{buttonText}</button>
                 <button
-                  className='button button__animation--md button__arrow button__arrow--md button__animation button--secondary form-group__element--left button__cancel'
+                  className='cdash-btn--cancel cdash-secondary form-group__element--left'
                   onClick={this.cancel}
                   readOnly={true}
                 >Cancel</button>

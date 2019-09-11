@@ -7,6 +7,7 @@ import {
   listRules,
   enableRule,
   disableRule,
+  addRule,
   deleteRule
 } from '../../actions';
 import {
@@ -46,7 +47,7 @@ const tableSortProps = [
   'state',
   'timestamp'
 ];
-
+//buttons
 const bulkActions = (rules) => [{
   text: 'Enable',
   action: enableRule,
@@ -58,6 +59,11 @@ const bulkActions = (rules) => [{
   state: rules.disabled,
   confirm: (d) => `Disable ${d} Rule(s)?`
 }, {
+  text: 'Add',
+  action: addRule,
+  state: rules.added,
+  confirm: (d) => `Add ${d} Rule(s)?`
+},{
   text: 'Delete',
   action: deleteRule,
   state: rules.deleted,

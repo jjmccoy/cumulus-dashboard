@@ -370,13 +370,9 @@ table {
 }
 
 .table__main-asset {
-  .granule__status--running, .granule__status--running:visited {
-    color: $orange;
-  }
-  .granule__status--completed, .granule__status--completed:visited {
-    color: $light-green;
-  }
+  .granule__status--running, .granule__status--running:visited, 
+  .granule__status--completed, .granule__status--completed:visited,
   .granule__status--failed, .granule__status--failed:visited {
-    color: $error-red;
+    color: $ocean-blue;
   }
 }

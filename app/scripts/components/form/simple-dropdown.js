@@ -27,6 +27,7 @@ class Dropdown extends React.Component {
     return (
       <div className='form__dropdown'>
         <label htmlFor={id}>{label}</label>
+        <span className="filter__icon"></span>
         <span className='form__error'>{error}</span>
         <div className='dropdown__wrapper'>
           <select id={id} value={value} onChange={this.onChange}>

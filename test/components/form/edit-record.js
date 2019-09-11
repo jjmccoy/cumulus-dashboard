@@ -41,7 +41,7 @@ test('EditRecord sends full object when merge property is true', (t) => {
     />
   );
 
-  const submitButton = editRecordWrapper.find('.button__submit');
+  const submitButton = editRecordWrapper.find('.cdash-btn--submit');
 
   store.clearActions();
   submitButton.simulate('click');
