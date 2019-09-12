@@ -199,18 +199,19 @@ a:active {
 .sidebar {
   padding-top: 4em;
   width: 20%;
-  max-width: 131px;
+  max-width: 195px;
   float: left;
   height: 100%;
   min-height:100vh;
-  background-color: $midnight-blue;
-  color: $lighter-grey;
+  background-color: #1E6B9D;
+  color: #E7E4E4;
   position: absolute;
   a {
-    color: lighten($lighter-grey, 8%);
+    color: lighten(#E7E4E4, 8%);
     border-bottom: none;
     .active {
-      color: $white;
+      color: #E7E4E4;
+      border-bottom: 1px solid #E7E4E4;
     }
     &:hover {
       color: $white;
@@ -223,13 +224,30 @@ a:active {
     display: inline-block;
   }
   .sidebar__nav--selected {
-    color: $white;
-    font-weight: $base-font-bold;
+    color: #E7E4E4;
+    font-weight: $base-font-semibold;
+    line-height: 3em;
     letter-spacing: .2px;
+    background-color: #1A557B;
   }
   li {
     margin-bottom: 0.75em;
+    
   }
+}
+
+.sidebar-items{
+    z-index: 99;
+    position: absolute;
+    left: -80px;
+
+}
+
+a.sidebar__nav--selected {
+  padding: 5px 25px 5px 25px;
+  text-align: center;
+  display: inline-block;
+  width: 225px;
 }
 
 .sidebar:before {
@@ -239,7 +257,7 @@ a:active {
   bottom: 0;
   /* subtract h2 padding (1.5rem) */
   left: -50em;
-  background: $midnight-blue;
+  background: #1E6B9D;
   height: 100%;
   width: 50em;
 }
@@ -263,7 +281,7 @@ a:active {
 }
 
 .page__content--shortened {
-  padding: 4em 0 0 12.5em; /* need top room for breadcrumbs */
+  padding: 4em 0 0 19em; /* need top room for breadcrumbs */
   float: left;
   width: 80%;
 }

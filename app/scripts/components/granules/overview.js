@@ -70,7 +70,7 @@ class GranulesOverview extends React.Component {
   generateQuery () {
     return {};
   }
-
+//button CTAs 
   generateBulkActions () {
     const actionConfig = {
       execute: {
@@ -136,14 +136,14 @@ class GranulesOverview extends React.Component {
       <div className='page__component'>
         <section className='page__section page__section__header-wrapper'>
           <div className='page__section__header'>
-            <h1 className='heading--large heading--shared-content with-description '>{strings.granule_overview}</h1>
+            <h1 className='heading--large heading--shared-content with-description'>Granules Metrics</h1>
             {lastUpdated(queriedAt)}
             {this.renderOverview(get(stats, 'count.data.granules.count', []))}
           </div>
         </section>
         <section className='page__section'>
           <div className='heading__wrapper--border'>
-            <h2 className='heading--medium heading--shared-content with-description'>{strings.granules} <span className='num--title'>{count ? ` ${tally(count)}` : null}</span></h2>
+            <h2 className='heading--medium heading--shared-content with-description'>Total Granules<span className='num--title'>{count ? ` ${tally(count)}` : null}</span></h2>
             {this.csvDownloadSection(data)}
           </div>
           <div className='filters filters__wlabels'>
@@ -175,6 +175,7 @@ class GranulesOverview extends React.Component {
             tableRow={tableRow}
             tableSortProps={tableSortProps}
             query={this.generateQuery()}
+            //button CTAs
             bulkActions={this.generateBulkActions()}
             rowId={'granuleId'}
             sortIdx={6}

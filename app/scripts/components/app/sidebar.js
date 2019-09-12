@@ -25,7 +25,7 @@ class Sidebar extends React.Component {
     const { currentPath, params, count } = this.props;
     return (
       <div key={base}>
-        <ul>
+        <ul className='sidebar-items'>
           {
             routes(currentPath, params, count).map((d, i) => {
               const path = this.resolvePath(base, d[1]);
