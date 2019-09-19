@@ -224,6 +224,10 @@
   &--top{
     @extend %button;
     background-color: $light-green;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
   
     &:before{
       color: $white;
@@ -235,6 +239,15 @@
       
     } 
   }
+
+}
+
+.top{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 30px;
+  margin-bottom: 45px;
 
 }
 
@@ -282,7 +295,7 @@
 }
 
 .button--secondary, .button--secondary:visited {
-  background-color: $dolphin-grey;
+  background-color: $smokey-grey;
 }
 
 .button__addcollections {

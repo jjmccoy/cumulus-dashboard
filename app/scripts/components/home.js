@@ -1,8 +1,8 @@
 'use strict';
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link, ScrollToTop } from 'react-router';
 import { get } from 'object-path';
 import {
   getCount,
@@ -23,6 +23,7 @@ import {
   seconds
 } from '../utils/format';
 import List from './table/list-view';
+import TopButton from './app/top-button';
 import GranulesProgress from './granules/progress';
 import {
   errorTableHeader,
@@ -45,6 +46,7 @@ import {
 
 import { strings } from './locale';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class Home extends React.Component {
   constructor () {
@@ -134,6 +136,8 @@ class Home extends React.Component {
     );
   }
 
+  
+
   render () {
     const { list } = this.props.granules;
     const { stats, count } = this.props.stats;
@@ -201,9 +205,6 @@ class Home extends React.Component {
                 <h2 className='heading--medium heading--shared-content--right'>{strings.granules_errors}</h2>
                 <Link className='link--secondary link--learn-more' to='/logs'>{strings.view_logs}</Link>
               </div>
-              <div className='row'>
-                <div className="button__primary back--top"></div>
-              </div>
               <List
                 list={list}
                 dispatch={this.props.dispatch}
@@ -214,9 +215,14 @@ class Home extends React.Component {
                 tableSortProps={errorTableSortProps}
                 query={this.generateQuery()}
               />
-              
             </div>
           </section>
+
+          <section className='page__section--top'>
+            <TopButton/>
+          </section>
+
+          
         </div>
       </div>
     );
