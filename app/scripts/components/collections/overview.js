@@ -84,9 +84,9 @@ class CollectionOverview extends React.Component {
     const data = get(record, 'data', {});
     const stats = get(data, 'stats', {});
     const overview = [
-      [tally(stats.running), strings.granules_running],
       [tally(stats.completed), strings.granules_completed],
-      [tally(stats.failed), strings.granules_failed]
+      [tally(stats.failed), strings.granules_failed],
+      [tally(stats.running), strings.granules_running]
     ];
     return <Overview items={overview} inflight={record.inflight} />;
   }
@@ -108,7 +108,7 @@ class CollectionOverview extends React.Component {
       <div className='page__component'>
         <section className='page__section page__section__header-wrapper'>
           <h1 className='heading--large heading--shared-content with-description'>{collectionName} / {collectionVersion}</h1>
-          <div className='form-group__element--right'>
+          <div className='cdash-btn--delete cdash-btn--small form-group__element--right'>
           <AsyncCommand action={this.delete}
             success={this.navigateBack}
             successTimeout={updateDelay}

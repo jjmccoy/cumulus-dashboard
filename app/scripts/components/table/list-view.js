@@ -10,6 +10,7 @@ import isNil from 'lodash.isnil';
 import Loading from '../app/loading-indicator';
 import omitBy from 'lodash.omitby';
 import Pagination from '../app/pagination';
+import PageShort from '../app/page-short';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SortableTable from './sortable';
@@ -235,6 +236,7 @@ class List extends React.Component {
         <SortableTable
           primaryIdx={primaryIdx}
           data={list.data}
+          //options row here
           header={tableHeader}
           row={tableRow}
           props={tableSortProps}

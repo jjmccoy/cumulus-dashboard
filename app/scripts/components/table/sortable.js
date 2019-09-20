@@ -62,7 +62,7 @@ class Table extends React.Component {
   }
 
   render () {
-    let { primaryIdx, sortIdx, order, props, header, row, rowId, data, selectedRows, canSelect, collapsible } = this.props;
+    let { primaryIdx, sortIdx, order, props, options, header, row, rowId, data, selectedRows, canSelect, collapsible } = this.props;
     const isTableDumb = this.isTableDumb();
     primaryIdx = primaryIdx || 0;
 
@@ -84,7 +84,9 @@ class Table extends React.Component {
         <form>
           <ul className='options--top'>
             <li>Showing <span className="amount--records">all 100</span> Records</li>
-            <li><input type="text"></input></li>
+            <li>
+              <input type="text"></input>
+              </li>
             <li>Show<input type="text"></input>per table</li>
           </ul>
           
