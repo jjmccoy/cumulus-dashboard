@@ -64,7 +64,7 @@ describe('Rules page', () => {
 
     it('creating a rule should add it to the list', () => {
       cy.visit('/#/rules');
-      cy.get('a').contains('Add a rule').as('addRule');
+      cy.get('a').contains('Add rule').as('addRule');
       cy.get('@addRule').should('have.attr', 'href', '#/rules/add');
       cy.get('@addRule').click();
 
@@ -113,7 +113,7 @@ describe('Rules page', () => {
         .click();
 
       cy.contains('.heading--large', testRuleName);
-      cy.contains('.button--small', 'Edit').click();
+      cy.contains('.cdash-btn--edit', 'Edit').click();
       cy.contains('.heading--large', `Edit ${testRuleName}`);
 
       // update rule and submit

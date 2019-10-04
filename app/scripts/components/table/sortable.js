@@ -107,6 +107,7 @@ class Table extends React.Component {
                 );
               })}
             </tr> 
+          </thead>
           <tbody>
             {data.map((d, i) => {
               const dataId = typeof rowId === 'function' ? rowId(d) : d[rowId];

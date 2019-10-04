@@ -32,9 +32,9 @@ describe('Dashboard Executions Page', () => {
 
       // shows a summary count of completed and failed executions
       cy.get('.overview-num__wrapper ul li')
-        .first().contains('li', '3 Completed')
-        .next().contains('li', '1 Failed')
-        .next().contains('li', '1 Running');
+        .first().contains('li', 'Completed3')
+        .next().contains('li', 'Failed1')
+        .next().contains('li', 'Running1');
 
       // shows a list of executions with IDs and status
       cy.getFakeApiFixture('executions').as('executionStatus');

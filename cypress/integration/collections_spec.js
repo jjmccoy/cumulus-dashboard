@@ -70,7 +70,7 @@ describe('Dashboard Collections Page', () => {
       // On the Collections page, click the Add Collection button
       cy.visit('/#/collections');
       cy.contains('.heading--large', 'Collection Overview');
-      cy.contains('a', 'Add a Collection').click();
+      cy.contains('a', 'Add Collection').click();
 
       // Fill the form with the test collection JSON and submit it
       cy.hash().should('eq', '#/collections/add');

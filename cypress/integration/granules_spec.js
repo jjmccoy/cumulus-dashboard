@@ -27,16 +27,16 @@ describe('Dashboard Granules Page', () => {
 
       cy.url().should('include', 'granules');
       cy.contains('.heading--xlarge', 'Granules');
-      cy.contains('.heading--large', 'Granule Overview');
+      cy.contains('.heading--large', 'Granules Metrics');
 
       // shows a summary count of completed and failed granules
       cy.get('.overview-num__wrapper ul li')
         .first()
-        .contains('li', '243 Completed')
+        .contains('li', 'Completed243')
         .next()
-        .contains('li', '32 Failed')
+        .contains('li', 'Failed32')
         .next()
-        .contains('li', '14 Running');
+        .contains('li', 'Running14');
 
       // shows a list of granules
       cy.getFakeApiFixture('granules').as('granulesList');
