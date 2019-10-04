@@ -97,10 +97,11 @@ export const recoverAction = (granules, config) => ({
   confirm: confirmRecover
 });
 
-const confirmReingest = (d) => `Reingest ${d} granules(s)? Note: the granule files will be overwritten.`;
+const confirmReingest = (d) => `Reingest ${d} granules(s)? Note: the granule files will be overwritten.`
 const confirmApply = (d) => `Run workflow on ${d} granules?`;
 const confirmRemove = (d) => `Remove ${d} granule(s) from ${strings.cmr}?`;
 const confirmDelete = (d) => `Delete ${d} granule(s)?`;
+
 export const bulkActions = function (granules, config) {
   return [{
     text: 'Reingest',
@@ -125,3 +126,5 @@ export const bulkActions = function (granules, config) {
     confirm: confirmDelete
   }];
 };
+
+

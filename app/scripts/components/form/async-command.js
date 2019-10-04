@@ -75,6 +75,7 @@ class AsyncCommand extends React.Component {
     const { modal } = this.state;
     const inflight = status === 'inflight';
     const element = this.props.element || 'button';
+    // why is props a variable since it is React property? -- JM 9/6
     const props = {
       className: this.props.element ? this.elementClass(inflight) : this.buttonClass(inflight),
       onClick: this.props.disabled ? preventDefault : this.handleClick
